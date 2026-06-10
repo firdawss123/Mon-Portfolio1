@@ -1,0 +1,75 @@
+/* --- Stratégie mobile-first --- */
+
+/* MOBILE (par défaut) */
+.container { 
+    width: 100%; 
+    padding: 1rem; 
+}
+
+nav ul { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+}
+
+.project-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+}
+
+/* TABLETTE (écran >= 768px) */
+@media (min-width: 768px) {
+    .container { 
+        width: 90%; 
+        margin: 0 auto; 
+    }
+    
+    nav ul { 
+        flex-direction: row; 
+        gap: 1rem; 
+    }
+    
+    .project-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    /* Masquer le bouton burger sur tablette/desktop */
+    .menu-toggle { 
+        display: none; 
+    }
+}
+
+/* DESKTOP (écran >= 1024px) */
+@media (min-width: 1024px) {
+    .container { 
+        width: 1000px; 
+    }
+    
+    .project-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* --- Menu mobile adaptatif --- */
+@media (max-width: 767px) {
+    /* Menu caché par défaut sur mobile */
+    nav ul { 
+        display: none; 
+    }
+    
+    /* Classe active pour afficher le menu */
+    nav ul.active { 
+        display: flex; 
+        flex-direction: column; 
+    }
+    
+    /* Bouton burger */
+    .menu-toggle { 
+        display: block; 
+        background: none; 
+        border: none; 
+        font-size: 1.5rem; 
+        cursor: pointer; 
+    }
+}
